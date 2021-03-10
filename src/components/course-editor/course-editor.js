@@ -1,108 +1,66 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { combineReducers, createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import moduleReducer from '../../reducers/module-reducer'
+import lessonReducer from '../../reducers/lesson-reducer'
+import topicReducer from '../../reducers/topic-reducer'
+import ModuleList from './module-list'
+import LessonTabs from './lesson-tabs'
+import TopicPills from './topic-pills'
+import courseService from '../../services/course-service'
 
 
-const CourseEditor = ({props}) =>
-<Route path="/courses/editor">
-<div className="container">
-<div className="row">
-    <div className="col-3">
-    <h3>
-        CS5610 - WebDev
-        <i className="fas fa-arrow-left Blue-Icon" 
-            onClick={()=>props.history.goBack()}>
-        </i>
-    </h3>
-    </div>
-    <div className="col-9">
-        <ul className="nav nav-tabs">
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link active" href="#">Build</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Pages</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Theme</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Store</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Apps</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Settings</a>
-            </li>
-            <li className="list-group-item">
-                <i className="fas fa-plus-circle"></i>
-            </li>
-        </ul>
-    </div>
-</div>
 
-<div className="row">
-    <div className="col-3">
-        <ul className="list-group">
-            <li className="list-group-item">
-                Module1 - jQuery 
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item active">
-                Module2 - React
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                Module3 - Redux
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                Module4 - Native
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                Module5 - Angular
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                Module6 - Node
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                Module7 - Mongo
-                <i className="far fa-trash-alt float-right"></i>
-            </li>
-            <li className="list-group-item">
-                <i className="fas fa-plus-circle"></i>
-            </li>
-        </ul>
-    </div>
-    <div className="col-9">
-        <ul className="nav nav-pills">
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Topic 1</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Topic 2</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link active" href="#">Topic 3</a>
-            </li>
-            <li className="nav-item wbdv-space-nav-items">
-                <a className="nav-link" href="#">Topic 4</a>
-            </li>
-            <li className="list-group-item">
-                <i className="fas fa-plus-circle"></i>
-            </li>
-        </ul>
-        <div>
-            Content blank
+const editorReducer = combineReducers({
+    moduleReducer,
+    lessonReducer,
+    topicReducer
+})
+
+const store = createStore(editorReducer)
+
+const CourseEditor = ({props}) => {
+    const {layout, courseId} = useParams()
+    const [title, setTitle] = useState('')
+
+    useEffect(() => {
+        if (courseId !== 'undefined' && typeof courseId !== 'undefined')
+            courseService.findCourseById(courseId).then(course => 
+                setTitle(course.title))
+        }
+    , [courseId])
+
+    return (
+    <Provider store={store}>
+        <div className="container">
+            <h3 className="Editor-Title">
+                <Link to={`/courses/${layout}`} className="Grey Margin-Right">
+                    <i className="fas fa-times"/>
+                </Link>
+                {title}
+            </h3>
+            <div className="row">
+                <div className="col-3">
+                    <ModuleList/>
+                </div>
+                <div className="col-9">
+                    <LessonTabs/>
+                    <TopicPills/>
+                    <div>
+                        Content blank
+                    </div>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-3">
+                </div>
+                <div className="col-9">
+                </div>
+            </div>
         </div>
-
-    </div>
-</div>
-
-</div>
-</Route>
+    </Provider>)
+}
 
 export default CourseEditor

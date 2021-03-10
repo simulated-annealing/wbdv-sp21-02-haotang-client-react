@@ -6,6 +6,7 @@ const CourseCard = ({deleteCourse, updateCourse, course, title, owner, lastModif
     const [editing, setEditing] = useState(false)
     const [newTitle, setNewTitle] = useState(title)
 
+
     const onDeleteClicked = (course) => {
         setEditing(false)
         deleteCourse(course)
@@ -30,7 +31,7 @@ const CourseCard = ({deleteCourse, updateCourse, course, title, owner, lastModif
             <div className="card-body">
                 {
                     !editing && <h5 className="card-title Inline-Display">
-                        <Link to="/courses/editor">
+                        <Link to={`/courses/grid/edit/${course._id}`}>
                             {course.title} 
                         </Link>
                     </h5>
@@ -51,7 +52,9 @@ const CourseCard = ({deleteCourse, updateCourse, course, title, owner, lastModif
                     editing && <i className="fas fa-times float-right Center-Icon Red-Icon" onClick={() => onCancelClicked()}></i>
                 }
                 <p className="card-text Card-Content">This course is owned by {owner}, and last modified on {lastModified}.</p>
-                <Link to="/courses/editor" className="btn btn-primary">Edit</Link>
+                <Link to={`/courses/grid/edit/${course._id}`} className="btn btn-primary">
+                    Edit
+                </Link>
             </div>
         </div>
         </div>

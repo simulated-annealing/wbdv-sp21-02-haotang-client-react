@@ -51,7 +51,7 @@ export default class CourseManager extends React.Component {
 
     render = () => (
         <div>
-            <Route path='/courses/(table|grid)'>
+            <Route path='/courses/(table|grid)' exact={true}>
             <div className="wbdv-sticky-nav-bar">
                 <div className="row">
                     <Route path='/courses/table'>
@@ -94,17 +94,22 @@ export default class CourseManager extends React.Component {
             </Route>
 
             <div>
-                <Route path='/courses/table'>
+                <Route path='/courses/table' exact={true}>
                     <CourseTable courses={this.state.courses} 
                         deleteCourse={this.deleteCourse}
                         updateCourse={this.updateCourse}/>
                 </Route>
-                <Route path='/courses/grid'>
+                <Route path='/courses/grid' exact={true}>
                     <CourseGrid courses={this.state.courses}
                         deleteCourse={this.deleteCourse}
                         updateCourse={this.updateCourse}/>
                 </Route>
-                <Route path='/courses/editor'
+                <Route path={[
+                    '/courses/:layout/edit/:courseId',
+                    '/courses/:layout/edit/:courseId/modules/:moduleId',
+                    '/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId',
+                    '/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId']}
+                    exact={true}
                     render={props => <CourseEditor props={props}/>}>
                 </Route>
             </div>

@@ -30,7 +30,7 @@ const CourseRow = ({deleteCourse, updateCourse, course, title, owner, lastModifi
                     !editing && <i className="far fa-file Blue-Icon"></i>
                 }
                 {
-                    !editing && <Link to="/courses/editor" className = "Margin-Left">
+                    !editing && <Link to={`/courses/table/edit/${course._id}`} className = "Margin-Left">
                         {title}
                     </Link>
                 }

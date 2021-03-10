@@ -41,6 +41,10 @@
     padding-top: 62px;
 }
 
+.Editor-Title {
+  padding-bottom: 16px;
+}
+
 .Buttom-Buffer {
   padding-bottom: 2em;
 }
@@ -61,6 +65,10 @@
   margin-left: 8px;
 }
 
+.Margin-Right {
+  margin-right: 8px;
+}
+
 .Inline-Display {
   display: inline;
 }
@@ -77,6 +85,59 @@
   color: deepskyblue;
 }
 
+.Grey {
+  color: grey;
+}
+
 .Card-Content {
   margin-top: 12px;
+}
+
+.Editable-Item-Icon {
+  padding-left: 3px;
+  padding-top: 5px;
+}
+
+.Editable-Item-Check {
+  margin-left: 3px;
+  padding-top: 15px;
+}
+
+.Editable-Item-Title {
+  padding-right: 12px;
+}
+
+.Editable-Item-Title-Active {
+  padding-right: 12px;
+  color: white;
+}
+
+.Editable-Item-Input {
+  margin-top: 7px;
+  width: 76%;
+}
+
+.Cursor-Pointer {
+  cursor: pointer;
+}
+
+.Module-Plus {
+  color: limegreen;
+  margin-left: 45%;
+}
+
+.Lesson-Plus {
+  color: limegreen;
+  padding-top: 18px;
+  padding-left: 15px;
+}
+
+.Topic-Plus {
+  color: limegreen;
+  padding-top: 18px;
+  padding-left: 15px;
+}
+
+.Module-Active {
+  padding-top: 0px;
 }
