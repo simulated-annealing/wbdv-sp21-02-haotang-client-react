@@ -3,9 +3,9 @@ import CourseCard from './course-card'
 
 const CourseGrid = ({courses, deleteCourse, updateCourse}) =>
     <div className='container-fluid Course-Grid'>
-        <h1>
+        <h3>
             Course Grid
-        </h1>
+        </h3>
         <div className='row'>
         {
             courses.map((course, idx) =>

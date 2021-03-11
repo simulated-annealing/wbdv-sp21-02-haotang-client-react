@@ -11,7 +11,7 @@ export default class CourseTable extends React.Component {
     render() {
         return (
             <div className="container-fluid Course-Grid">
-                <h1>Course Table</h1>
+                <h4>Course Table</h4>
                 <table className="table table-hover">
                     <thead>
                         <tr>
