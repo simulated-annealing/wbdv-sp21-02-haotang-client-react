@@ -5,9 +5,11 @@ import { Link, useParams } from 'react-router-dom'
 import moduleReducer from '../../reducers/module-reducer'
 import lessonReducer from '../../reducers/lesson-reducer'
 import topicReducer from '../../reducers/topic-reducer'
+import widgetReducer from '../../reducers/widget-reducer'
 import ModuleList from './module-list'
 import LessonTabs from './lesson-tabs'
 import TopicPills from './topic-pills'
+import WidgetList from './widgets/widget-list'
 import courseService from '../../services/course-service'
 
 
@@ -15,7 +17,8 @@ import courseService from '../../services/course-service'
 const editorReducer = combineReducers({
     moduleReducer,
     lessonReducer,
-    topicReducer
+    topicReducer,
+    widgetReducer
 })
 
 const store = createStore(editorReducer)
@@ -47,9 +50,7 @@ const CourseEditor = ({props}) => {
                 <div className="col-9">
                     <LessonTabs/>
                     <TopicPills/>
-                    <div>
-                        Content blank
-                    </div>
+                    <WidgetList/>
                 </div>
             </div>
 
