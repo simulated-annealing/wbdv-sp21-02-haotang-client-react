@@ -20,6 +20,19 @@ export const ParagraphWidget = ({
             setEditing(false)
             deleteWidget(widget.id)
         }}/>
+        <select className="form-control" value={cached.type} onChange={e =>
+            setCached({
+                ...cached,
+                type: e.target.value
+            })}>
+            <option value="HEADING">Heading</option>
+            <option value="PARAGRAPH">Paragraph</option>
+            <option value="VIDEO" disabled>Video</option>
+            <option value="IMAGE" disabled>Image</option>
+            <option value="LINK" disabled>Link</option>
+            <option value="LIST" disabled>List</option>
+            <option value="HTML" disabled>HTML</option>
+        </select>
         <textarea value={cached.text} onChange = {e => 
             setCached({
                 ...cached,
