@@ -30,29 +30,14 @@ const WidgetList = ({
             widgets.map((w, idx) => 
                 <li className="list-group-item" key={idx}>
                 {
-                    editingWidget.id === w.id && 
-                    <>
-                        <i className="fas fa-check fa-2x float-right" onClick={() => {
-                            setEditingWidget({})
-                            updateWidget(w.id, w)
-                        }}></i>
-                        <i className="fas fa-trash fa-2x float-right" onClick={() => {
-                            setEditingWidget({})
-                            deleteWidget(w.id)
-                        }}></i>
-                    </>
+                    w.type === "HEADING" && 
+                    <HeadingWidget widget={w} 
+                        updateWidget={updateWidget} deleteWidget={deleteWidget}/> 
                 }
                 {
-                    editingWidget.id !== w.id && 
-                    <>
-                        <i onClick={()=>setEditingWidget(w)} className="fas fa-cog fa-2x float-right"></i>
-                    </>
-                }
-                {
-                    w.type === "HEADING" && <HeadingWidget widget={w} editing={w.id === editingWidget.id}/> 
-                }
-                {
-                    w.type === "PARAGRAPH" && <ParagraphWidget widget={w} editing={w.id === editingWidget.id}/>
+                    w.type === "PARAGRAPH" && 
+                    <ParagraphWidget widget={w} 
+                        updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                 }
                 </li>)
         }
