@@ -13,7 +13,6 @@ const WidgetList = ({
     findWidgetsForTopic}) => {
     
     const {topicId} = useParams()
-    const [widget, setWidget] = useState({})
     const [editingWidget, setEditingWidget] = useState({})
 
     useEffect(() => {
@@ -27,7 +26,8 @@ const WidgetList = ({
         <ul className="list-group">
         {
             widgets.map((w, idx) => 
-                <li className="list-group-item" key={idx}>
+                <li className={`list-group-item ${w.id === editingWidget.id ? 'bg-light text-dark' : ''}`}
+                    key={idx} onClick={()=>setEditingWidget(w)}>
                     <GeneralWidget widget={w} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                 </li>)
         }
