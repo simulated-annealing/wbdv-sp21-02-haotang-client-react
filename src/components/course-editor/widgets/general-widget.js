@@ -36,32 +36,47 @@ const GeneralWidget = ({
                     <option value="LIST" disabled>List</option>
                     <option value="HTML" disabled>HTML</option>
                 </select>
-                <button id="typeConfirm" type="button" className="btn btn-outline-success float-right" onClick={e =>
-                    setMode(SET_WIDGET)}>
-                    Confirm
-                </button>
                 <button id="typeCancel" type="button" className="btn btn-outline-danger float-right" onClick={e => {
                     setMode(VIEW)
                     setCached(widget)}}>
                     Cancel
                 </button>
+                <button id="typeConfirm" type="button" className="btn btn-outline-success float-right" onClick={e =>
+                    setMode(SET_WIDGET)}>
+                    Confirm
+                </button>
                 </div>
             }
             {
                 mode === SET_WIDGET && <>
+                <div className="mb-3">
+                <label className="form-label colorViolet fontBold"> Selected Widget Type </label>
+                <select class="form-control" aria-label="Disabled select" disabled>
+                    <option selected>{cached.type}</option>
+                </select>
+                </div>
                 {cached.type === "HEADING" && <HeadingWidget editing={true} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={true} cached={cached} setCached={setCached}/>}
-                <i className="fas fa-check fa-2x float-right" onClick={() => {
+                <div className="mb-3">
+                <button id="editConfirm" type="button" className="btn btn-outline-success float-right" onClick={e => {
                     setMode(VIEW)
-                    updateWidget(widget.id, cached)}}/>
+                    updateWidget(widget.id, cached)}}>
+                    Confirm
+                </button>
+                <button id="editCancel" type="button" className="btn btn-outline-danger float-right" onClick={e => {
+                    setMode(VIEW)
+                    setCached(widget)}}>
+                    Cancel
+                </button>
+                </div>
                 </>
             }
             {
                 mode === VIEW && <>
-                {cached.type === "HEADING" && <HeadingWidget editing={false} cached={cached} setCached={setCached}/>}
-                {cached.type === "PARAGRAPH" && <ParagraphWidget editing={false} cached={cached} setCached={setCached}/>}
                 <i id="widgetDelete" className="far fa-trash-alt fa-lg float-right Red-Icon" onClick={() => deleteWidget(widget.id)}/>
                 <i id="widgetConfig" className="fas fa-user-cog fa-lg float-right Blue-Icon" onClick={() => setMode(SET_TYPE)}/>
+                {cached.type === "HEADING" && <HeadingWidget editing={false} cached={cached} setCached={setCached}/>}
+                {cached.type === "PARAGRAPH" && <ParagraphWidget editing={false} cached={cached} setCached={setCached}/>}
                 </>
             }
         </>

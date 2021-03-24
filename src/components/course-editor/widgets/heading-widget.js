@@ -8,12 +8,17 @@ export const HeadingWidget = ({
     return (
         <> {
         editing && <>
-        <input className="form-control" value={cached.text} onChange={e =>
-            setCached({
-                ...cached,
-                text: e.target.value
-            })}/>
-        <select className="form-control" value={cached.size} onChange={e =>
+        <div className="mb-3">
+            <label className="form-label colorViolet fontBold" for="headingEdit"> Heading </label>
+            <input id="headingEdit" className="form-control" placeholder="Edit heading here" value={cached.text} onChange={e =>
+                setCached({
+                    ...cached,
+                    text: e.target.value
+                })}/>
+        </div>
+        <div className="mb-3">
+        <label className="form-label colorViolet fontBold" for="sizeSelect"> Heading Size </label>
+        <select className="form-control" id="sizeSelect" value={cached.size} onChange={e =>
             setCached({
                 ...cached,
                 size: parseInt(e.target.value)
@@ -25,16 +30,17 @@ export const HeadingWidget = ({
             <option value={5}>Heading 5</option>
             <option value={6}>Heading 6</option>
         </select>
+        </div>
         </>}
 
         {
         !editing && <>
-        {cached.size === 1 && <h1>{cached.text}</h1>}
-        {cached.size === 2 && <h2>{cached.text}</h2>}
-        {cached.size === 3 && <h3>{cached.text}</h3>}
-        {cached.size === 4 && <h4>{cached.text}</h4>}
-        {cached.size === 5 && <h5>{cached.text}</h5>}
-        {cached.size === 6 && <h6>{cached.text}</h6>}
+        {cached.size === 1 && <h1 className="widgetHeading">{cached.text}</h1>}
+        {cached.size === 2 && <h2 className="widgetHeading">{cached.text}</h2>}
+        {cached.size === 3 && <h3 className="widgetHeading">{cached.text}</h3>}
+        {cached.size === 4 && <h4 className="widgetHeading">{cached.text}</h4>}
+        {cached.size === 5 && <h5 className="widgetHeading">{cached.text}</h5>}
+        {cached.size === 6 && <h6 className="widgetHeading">{cached.text}</h6>}
         </>}
         </>
     )

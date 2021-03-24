@@ -8,7 +8,7 @@ export const ParagraphWidget = ({
     return (<>
     {
         editing &&
-        <textarea value={cached.text} onChange = {e => 
+        <textarea id="widgetTextarea" value={cached.text} className="form-control" rows="8" onChange = {e => 
             setCached({
                 ...cached,
                 text: e.target.value
