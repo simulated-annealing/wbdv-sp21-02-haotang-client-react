@@ -20,10 +20,10 @@ const GeneralWidget = ({
         <>
             {
                 mode === SET_TYPE && <div className="mb-3">
-                <label id="typeLabel" htmlFor="typeSelect" className="form-label colorViolet fontBold">
+                <label id="typeLabel" htmlFor="typeSelect" className="form-label colorViolet fontBold Cursor-Pointer">
                     Select Widget Type
                 </label>
-                <select id="typeSelect" className="form-control" value={cached.type} onChange={e =>
+                <select id="typeSelect" className="form-control Cursor-Pointer" value={cached.type} onChange={e =>
                     setCached({
                         ...cached,
                         type: e.target.value
@@ -61,7 +61,7 @@ const GeneralWidget = ({
                 <button id="editConfirm" type="button" className="btn btn-outline-success float-right" onClick={e => {
                     setMode(VIEW)
                     updateWidget(widget.id, cached)}}>
-                    Confirm
+                    Save
                 </button>
                 <button id="editCancel" type="button" className="btn btn-outline-danger float-right" onClick={e => {
                     setMode(VIEW)
@@ -73,8 +73,8 @@ const GeneralWidget = ({
             }
             {
                 mode === VIEW && <>
-                <i id="widgetDelete" className="far fa-trash-alt fa-lg float-right Red-Icon" onClick={() => deleteWidget(widget.id)}/>
-                <i id="widgetConfig" className="fas fa-user-cog fa-lg float-right Blue-Icon" onClick={() => setMode(SET_TYPE)}/>
+                <i id="widgetDelete" className="far fa-trash-alt float-right Red-Icon Cursor-Pointer" onClick={() => deleteWidget(widget.id)}/>
+                <i id="widgetConfig" className="fas fa-user-cog float-right Blue-Icon Cursor-Pointer" onClick={() => setMode(SET_TYPE)}/>
                 {cached.type === "HEADING" && <HeadingWidget editing={false} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={false} cached={cached} setCached={setCached}/>}
                 </>

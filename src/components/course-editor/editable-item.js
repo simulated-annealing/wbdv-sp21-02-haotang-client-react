@@ -50,11 +50,11 @@ const EditableItem = ({item,
             }
             {
                 editing && <>
-                <input className="Editable-Item-Input"
+                <input className="Editable-Item-Input Cursor-Pointer"
                     value={cachedItem.title} onChange={onTitleChange}/>
-                <i className="fas fa-check fa-lg float-right Editable-Item-Check Green-Icon" 
+                <i className="fas fa-check fa-lg float-right Editable-Item-Check Green-Icon Cursor-Pointer" 
                    onClick={onSaveClick}></i>
-                <i className="fas fa-times fa-lg float-right Editable-Item-Check Red-Icon" 
+                <i className="fas fa-times fa-lg float-right Editable-Item-Check Red-Icon Cursor-Pointer" 
                     onClick={onCancelClick}></i>
                 </>
             }

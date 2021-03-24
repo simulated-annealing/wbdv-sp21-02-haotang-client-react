@@ -9,16 +9,16 @@ export const HeadingWidget = ({
         <> {
         editing && <>
         <div className="mb-3">
-            <label className="form-label colorViolet fontBold" htmlFor="headingEdit"> Heading </label>
-            <input id="headingEdit" className="form-control" placeholder="Edit heading here" value={cached.text} onChange={e =>
+            <label className="form-label colorViolet fontBold Cursor-Pointer" htmlFor="headingEdit"> Heading </label>
+            <input id="headingEdit" className="form-control Cursor-Pointer" placeholder="Edit heading here" value={cached.text} onChange={e =>
                 setCached({
                     ...cached,
                     text: e.target.value
                 })}/>
         </div>
         <div className="mb-3">
-        <label className="form-label colorViolet fontBold" htmlFor="sizeSelect"> Heading Size </label>
-        <select className="form-control" id="sizeSelect" value={cached.size} onChange={e =>
+        <label className="form-label colorViolet fontBold Cursor-Pointer" htmlFor="sizeSelect"> Heading Size </label>
+        <select className="form-control Cursor-Pointer" id="sizeSelect" value={cached.size} onChange={e =>
             setCached({
                 ...cached,
                 size: parseInt(e.target.value)
@@ -35,12 +35,12 @@ export const HeadingWidget = ({
 
         {
         !editing && <>
-        {cached.size === 1 && <h1 className="widgetHeading">{cached.text}</h1>}
-        {cached.size === 2 && <h2 className="widgetHeading">{cached.text}</h2>}
-        {cached.size === 3 && <h3 className="widgetHeading">{cached.text}</h3>}
-        {cached.size === 4 && <h4 className="widgetHeading">{cached.text}</h4>}
-        {cached.size === 5 && <h5 className="widgetHeading">{cached.text}</h5>}
-        {cached.size === 6 && <h6 className="widgetHeading">{cached.text}</h6>}
+        {cached.size === 1 && <h1 className="widgetHeading Cursor-Pointer">{cached.text}</h1>}
+        {cached.size === 2 && <h2 className="widgetHeading Cursor-Pointer">{cached.text}</h2>}
+        {cached.size === 3 && <h3 className="widgetHeading Cursor-Pointer">{cached.text}</h3>}
+        {cached.size === 4 && <h4 className="widgetHeading Cursor-Pointer">{cached.text}</h4>}
+        {cached.size === 5 && <h5 className="widgetHeading Cursor-Pointer">{cached.text}</h5>}
+        {cached.size === 6 && <h6 className="widgetHeading Cursor-Pointer">{cached.text}</h6>}
         </>}
         </>
     )
