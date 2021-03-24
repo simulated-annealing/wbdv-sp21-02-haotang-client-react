@@ -141,3 +141,34 @@
 .Module-Active {
   padding-top: 0px;
 }
+
+#typeLabel{
+  text-align: left;
+  font-weight: bold;
+  padding-top: 6px;
+  color: darkviolet;
+}
+
+#typeSelect{
+  margin-left: -25px;
+  margin-right: 25px;
+  padding-top: 6px;
+}
+
+#typeConfirm{
+  width: 10%;
+  height: 10%;
+}
+
+#typeCancel{
+  margin-left: 18px;
+  width: 10%;
+}
+
+#widgetDelete {
+  margin-left: 5px;
+}
+
+#widgetConfig {
+  vertical-align: middle;
+}

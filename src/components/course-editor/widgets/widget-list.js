@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router'
 import widgetService from '../../../services/widget-service'
-import { HeadingWidget } from './heading-widget'
-import { ParagraphWidget } from './paragraph-widget'
+import GeneralWidget from './general-widget'
 
 
 const WidgetList = ({
@@ -29,16 +28,7 @@ const WidgetList = ({
         {
             widgets.map((w, idx) => 
                 <li className="list-group-item" key={idx}>
-                {
-                    w.type === "HEADING" && 
-                    <HeadingWidget widget={w} 
-                        updateWidget={updateWidget} deleteWidget={deleteWidget}/> 
-                }
-                {
-                    w.type === "PARAGRAPH" && 
-                    <ParagraphWidget widget={w} 
-                        updateWidget={updateWidget} deleteWidget={deleteWidget}/>
-                }
+                    <GeneralWidget widget={w} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
                 </li>)
         }
         <li key={widgets.length} className="list-group-item">

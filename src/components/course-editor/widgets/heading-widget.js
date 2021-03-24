@@ -1,37 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export const HeadingWidget = ({
-    widget, 
-    updateWidget,
-    deleteWidget }) => {
-
-    const [editing, setEditing] = useState(false)
-    const [cached, setCached] = useState(widget)
+    editing, 
+    cached,
+    setCached }) => {
 
     return (
         <> {
         editing && <>
-        <i className="fas fa-check fa-2x float-right" onClick={() => {
-            setEditing(false)
-            updateWidget(widget.id, cached)
-        }}/>
-        <i className="fas fa-trash fa-2x float-right" onClick={() => {
-            setEditing(false)
-            deleteWidget(widget.id)
-        }}/>
-        <select className="form-control" value={cached.type} onChange={e =>
-            setCached({
-                ...cached,
-                type: e.target.value
-            })}>
-            <option value="HEADING">Heading</option>
-            <option value="PARAGRAPH">Paragraph</option>
-            <option value="VIDEO" disabled>Video</option>
-            <option value="IMAGE" disabled>Image</option>
-            <option value="LINK" disabled>Link</option>
-            <option value="LIST" disabled>List</option>
-            <option value="HTML" disabled>HTML</option>
-        </select>
         <input className="form-control" value={cached.text} onChange={e =>
             setCached({
                 ...cached,
@@ -53,15 +29,15 @@ export const HeadingWidget = ({
 
         {
         !editing && <>
-        <i className="fas fa-cog fa-2x float-right" onClick={() =>
-            setEditing(true)}/>
-        {widget.size === 1 && <h1>{widget.text}</h1>}
-        {widget.size === 2 && <h2>{widget.text}</h2>}
-        {widget.size === 3 && <h3>{widget.text}</h3>}
-        {widget.size === 4 && <h4>{widget.text}</h4>}
-        {widget.size === 5 && <h5>{widget.text}</h5>}
-        {widget.size === 6 && <h6>{widget.text}</h6>}
+        {cached.size === 1 && <h1>{cached.text}</h1>}
+        {cached.size === 2 && <h2>{cached.text}</h2>}
+        {cached.size === 3 && <h3>{cached.text}</h3>}
+        {cached.size === 4 && <h4>{cached.text}</h4>}
+        {cached.size === 5 && <h5>{cached.text}</h5>}
+        {cached.size === 6 && <h6>{cached.text}</h6>}
         </>}
         </>
     )
 } 
+
+export default HeadingWidget
