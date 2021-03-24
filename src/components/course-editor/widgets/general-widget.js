@@ -19,11 +19,11 @@ const GeneralWidget = ({
     return (
         <>
             {
-                mode === SET_TYPE && <div className="row">
-                <label id="typeLabel" htmlFor="typeSelect" className="col-3">
+                mode === SET_TYPE && <div className="mb-3">
+                <label id="typeLabel" htmlFor="typeSelect" className="form-label colorViolet fontBold">
                     Select Widget Type
                 </label>
-                <select id="typeSelect" className="col-6 form-control" value={cached.type} onChange={e =>
+                <select id="typeSelect" className="form-control" value={cached.type} onChange={e =>
                     setCached({
                         ...cached,
                         type: e.target.value
@@ -36,14 +36,14 @@ const GeneralWidget = ({
                     <option value="LIST" disabled>List</option>
                     <option value="HTML" disabled>HTML</option>
                 </select>
+                <button id="typeConfirm" type="button" className="btn btn-outline-success float-right" onClick={e =>
+                    setMode(SET_WIDGET)}>
+                    Next
+                </button>
                 <button id="typeCancel" type="button" className="btn btn-outline-danger float-right" onClick={e => {
                     setMode(VIEW)
                     setCached(widget)}}>
                     Cancel
-                </button>
-                <button id="typeConfirm" type="button" className="btn btn-outline-success float-right" onClick={e =>
-                    setMode(SET_WIDGET)}>
-                    Confirm
                 </button>
                 </div>
             }
@@ -51,8 +51,8 @@ const GeneralWidget = ({
                 mode === SET_WIDGET && <>
                 <div className="mb-3">
                 <label className="form-label colorViolet fontBold"> Selected Widget Type </label>
-                <select class="form-control" aria-label="Disabled select" disabled>
-                    <option selected>{cached.type}</option>
+                <select className="form-control" value={cached.type} disabled>
+                    <option>{cached.type}</option>
                 </select>
                 </div>
                 {cached.type === "HEADING" && <HeadingWidget editing={true} cached={cached} setCached={setCached}/>}

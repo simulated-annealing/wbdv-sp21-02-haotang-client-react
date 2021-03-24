@@ -9,7 +9,7 @@ export const HeadingWidget = ({
         <> {
         editing && <>
         <div className="mb-3">
-            <label className="form-label colorViolet fontBold" for="headingEdit"> Heading </label>
+            <label className="form-label colorViolet fontBold" htmlFor="headingEdit"> Heading </label>
             <input id="headingEdit" className="form-control" placeholder="Edit heading here" value={cached.text} onChange={e =>
                 setCached({
                     ...cached,
@@ -17,7 +17,7 @@ export const HeadingWidget = ({
                 })}/>
         </div>
         <div className="mb-3">
-        <label className="form-label colorViolet fontBold" for="sizeSelect"> Heading Size </label>
+        <label className="form-label colorViolet fontBold" htmlFor="sizeSelect"> Heading Size </label>
         <select className="form-control" id="sizeSelect" value={cached.size} onChange={e =>
             setCached({
                 ...cached,

@@ -157,20 +157,15 @@
   color: darkviolet;
 }
 
-#typeSelect{
-  margin-left: -25px;
-  margin-right: 25px;
-  padding-top: 6px;
-}
-
 #typeConfirm{
   width: 10%;
-  height: 10%;
   margin-left: 18px;
+  margin-top: 12px;
 }
 
 #typeCancel{
   width: 10%;
+  margin-top: 12px;
 }
 
 #editConfirm{

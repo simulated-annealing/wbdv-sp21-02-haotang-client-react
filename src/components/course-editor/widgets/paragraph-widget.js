@@ -8,7 +8,7 @@ export const ParagraphWidget = ({
     return (<>
     {
         editing && <div className="mb-3">
-        <label className="form-label colorViolet fontBold" for="widgetTextarea"> Paragraph </label>
+        <label className="form-label colorViolet fontBold" htmlFor="widgetTextarea"> Paragraph </label>
         <textarea id="widgetTextarea" value={cached.text} className="form-control" rows="8" onChange = {e => 
             setCached({
                 ...cached,
