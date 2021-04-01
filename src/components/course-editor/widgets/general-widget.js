@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ParagraphWidget from './paragraph-widget'
 import HeadingWidget from './heading-widget'
+import ListWidget from './list-widget'
 
 
 const VIEW = "VIEW"
@@ -33,7 +34,7 @@ const GeneralWidget = ({
                     <option value="VIDEO" disabled>Video</option>
                     <option value="IMAGE" disabled>Image</option>
                     <option value="LINK" disabled>Link</option>
-                    <option value="LIST" disabled>List</option>
+                    <option value="LIST">List</option>
                     <option value="HTML" disabled>HTML</option>
                 </select>
                 <button id="typeConfirm" type="button" className="btn btn-outline-success float-right" onClick={e =>
@@ -57,6 +58,7 @@ const GeneralWidget = ({
                 </div>
                 {cached.type === "HEADING" && <HeadingWidget editing={true} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={true} cached={cached} setCached={setCached}/>}
+                {cached.type === "LIST" && <ListWidget editing={true} cached={cached} setCached={setCached}/>}
                 <div className="mb-3">
                 <button id="editConfirm" type="button" className="btn btn-outline-success float-right" onClick={e => {
                     setMode(VIEW)
@@ -77,6 +79,7 @@ const GeneralWidget = ({
                 <i id="widgetConfig" className="fas fa-user-cog float-right Blue-Icon Cursor-Pointer" onClick={() => setMode(SET_TYPE)}/>
                 {cached.type === "HEADING" && <HeadingWidget editing={false} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={false} cached={cached} setCached={setCached}/>}
+                {cached.type === "LIST" && <ListWidget editing={false} cached={cached} setCached={setCached}/>}
                 </>
             }
         </>

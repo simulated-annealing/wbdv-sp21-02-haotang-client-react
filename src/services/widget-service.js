@@ -1,4 +1,5 @@
-const WIDGET_URL = "https://wbdv-sp21-02-haotang-server-jv.herokuapp.com/api"
+//const WIDGET_URL = "https://wbdv-sp21-02-haotang-server-jv.herokuapp.com/api"
+const WIDGET_URL = "http://localhost:8080/api"
 
 const createWidget = (topidcId, widget) =>
     fetch(`${WIDGET_URL}/topics/${topidcId}/widgets`, {

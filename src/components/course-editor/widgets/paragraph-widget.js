@@ -1,20 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const ParagraphWidget = ({
     editing, 
     cached,
     setCached}) => {
 
+    const maxCount="1024"
+    const [count, setCount] = useState(cached.text.length)
+
     return (<>
     {
-        editing && <div className="mb-3">
-        <label className="form-label colorViolet fontBold Cursor-Pointer" htmlFor="widgetTextarea"> Paragraph </label>
-        <textarea id="widgetTextarea" value={cached.text} className="form-control Cursor-Pointer"
-            placeholder="Edit the paragraph here..." rows="8" onChange = {e => 
-            setCached({
-                ...cached,
-                text: e.target.value
-            })}/>
+        editing && <div>
+        <label className="form-label colorViolet fontBold Cursor-Pointer" htmlFor="paraTextEdit"> Paragraph </label>
+        <textarea id="paraTextEdit" value={cached.text} className="form-control Cursor-Pointer"
+            placeholder="Edit the paragraph here..." rows="8" maxLength={maxCount} onChange = {e => {
+                setCount(e.target.value.length)
+                setCached({
+                    ...cached,
+                    text: e.target.value
+                })}}/>
+        <label className="form-label colorViolet Cursor-Pointer" 
+            id="paraCountNote" htmlFor="paraTextEdit"> 
+            {`${count}/${maxCount} characters`} 
+        </label>
         </div>
     }
     { !editing && <p className="Cursor-Pointer">{cached.text}</p> }

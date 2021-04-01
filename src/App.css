@@ -179,7 +179,8 @@
 }
 
 #widgetDelete {
-  margin-left: 5px;
+  margin-left: 3px;
+  margin-right: -14px;
 }
 
 #widgetConfig {
@@ -191,6 +192,23 @@
   padding-top: 1.0%;
 }
 
-#widgetTextarea{
-  margin-bottom: 12px;
+#paraTextEdit {
+  margin-bottom: 0.2%;
+}
+
+#paraCountNote {
+  padding-inline-start: 79%;
+}
+
+.list-widget-view {
+  margin-right: 4%;
+}
+
+#listTextEdit {
+  margin-top: 1.6%;
+  margin-bottom: 0.2%;
+}
+
+#listCountNote {
+  padding-inline-start: 79%;
 }
