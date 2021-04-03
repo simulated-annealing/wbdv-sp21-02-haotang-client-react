@@ -95,7 +95,7 @@ const ImageWidget = ({
     }
     {
         !editing && 
-        <img src={cached.url} id="imageEditWidget" alt="image preview" 
+        <img src={cached.url} id="imageEditWidget" alt="image preview" className="Cursor-Pointer" 
             width={cached.width} height={cached.height}/>
     }
     </>)

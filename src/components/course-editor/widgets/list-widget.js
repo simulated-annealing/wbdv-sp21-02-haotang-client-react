@@ -41,7 +41,7 @@ const ListWidget = ({
         </div>
     }
     {
-        !editing && cached.ordered && <ol className="list-group list-widget-view"> {
+        !editing && cached.ordered && <ol className="list-group list-widget-view Cursor-Pointer"> {
             cached.text.split("\n").map((s, i) => 
             <li className="list-group-item" key={i}>
                 {`${i+1}. ${s}`}
@@ -50,7 +50,7 @@ const ListWidget = ({
         </ol>
     }
     {
-        !editing && !cached.ordered && <ul className="list-group list-widget-view"> {
+        !editing && !cached.ordered && <ul className="list-group list-widget-view Cursor-Pointer"> {
             cached.text.split("\n").map((s, i) => 
             <li className="list-group-item" key={i}>
                 {s}
