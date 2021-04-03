@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ParagraphWidget from './paragraph-widget'
 import HeadingWidget from './heading-widget'
 import ListWidget from './list-widget'
+import ImageWidget from './image-widget'
 
 
 const VIEW = "VIEW"
@@ -32,7 +33,7 @@ const GeneralWidget = ({
                     <option value="HEADING">Heading</option>
                     <option value="PARAGRAPH">Paragraph</option>
                     <option value="VIDEO" disabled>Video</option>
-                    <option value="IMAGE" disabled>Image</option>
+                    <option value="IMAGE">Image</option>
                     <option value="LINK" disabled>Link</option>
                     <option value="LIST">List</option>
                     <option value="HTML" disabled>HTML</option>
@@ -59,6 +60,7 @@ const GeneralWidget = ({
                 {cached.type === "HEADING" && <HeadingWidget editing={true} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={true} cached={cached} setCached={setCached}/>}
                 {cached.type === "LIST" && <ListWidget editing={true} cached={cached} setCached={setCached}/>}
+                {cached.type === "IMAGE" && <ImageWidget editing={true} cached={cached} setCached={setCached}/>}
                 <div className="mb-3">
                 <button id="editConfirm" type="button" className="btn btn-outline-success float-right" onClick={e => {
                     setMode(VIEW)
@@ -80,6 +82,7 @@ const GeneralWidget = ({
                 {cached.type === "HEADING" && <HeadingWidget editing={false} cached={cached} setCached={setCached}/>}
                 {cached.type === "PARAGRAPH" && <ParagraphWidget editing={false} cached={cached} setCached={setCached}/>}
                 {cached.type === "LIST" && <ListWidget editing={false} cached={cached} setCached={setCached}/>}
+                {cached.type === "IMAGE" && <ImageWidget editing={false} cached={cached} setCached={setCached}/>}
                 </>
             }
         </>
