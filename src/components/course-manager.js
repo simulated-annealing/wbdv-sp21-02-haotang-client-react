@@ -4,6 +4,8 @@ import CourseTable from './course-table/course-table'
 import CourseGrid from './course-grid/course-grid'
 import CourseEditor from './course-editor/course-editor'
 import courseService from '../services/course-service'
+import Quizzes from './quiz/quizzes'
+import Quiz from './quiz/quiz'
 
 
 export default class CourseManager extends React.Component {
@@ -112,6 +114,12 @@ export default class CourseManager extends React.Component {
                     '/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId/widgets/:widgetId']}
                     exact={true}
                     render={props => <CourseEditor props={props}/>}>
+                </Route>
+                <Route path='/courses/:courseId/quizzes' exact={true}>
+                    <Quizzes/>
+                </Route>
+                <Route path='/courses/:courseId/quizzes/:quizId' exact={true}>
+                    <Quiz/>
                 </Route>
             </div>
         </div>)

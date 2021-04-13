@@ -41,6 +41,13 @@ const CourseRow = ({deleteCourse, updateCourse, course, title, owner, lastModifi
                     </input>
                 }
             </td>
+            <td>
+                {
+                    !editing && <Link to={`/courses/${course._id}/quizzes`}>
+                        Quizzes
+                    </Link>
+                }
+            </td>
             <td className="d-none d-md-table-cell">{owner}</td>
             <td className="d-none d-lg-table-cell">{lastModified}</td>
             <td>

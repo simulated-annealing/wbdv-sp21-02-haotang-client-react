@@ -55,6 +55,9 @@ const CourseCard = ({deleteCourse, updateCourse, course, title, owner, lastModif
                 <Link to={`/courses/grid/edit/${course._id}`} className="btn btn-primary">
                     Edit
                 </Link>
+                <Link to={`/courses/${course._id}/quizzes`} className="btn btn-primary Margin-Left">
+                    Quizzes
+                </Link>
             </div>
         </div>
         </div>

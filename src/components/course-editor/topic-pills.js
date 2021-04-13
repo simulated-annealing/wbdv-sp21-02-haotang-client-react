@@ -26,7 +26,7 @@ const TopicPills = ({topics = [],
     return (
         <ul className="nav nav-pills"> {
             topics.map((t, idx) => 
-                <li key={idx} className="nav-item wbdv-space-nav-items">
+                <li key={idx} className="nav-item wbdv-space-nav-pills">
                     <EditableItem item={t}
                         active={topicId === t._id}
                         titleActive={topicId === t._id}
@@ -34,7 +34,7 @@ const TopicPills = ({topics = [],
                         deleteItem={deleteTopic}
                         to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${t._id}`}/>
                 </li>)}
-            <li key={topics.length} className="nav-item wbdv-space-nav-items">
+            <li key={topics.length} className="nav-item wbdv-space-nav-pills">
                 <i className="fas fa-plus fa-lg Topic-Plus Cursor-Pointer"
                     onClick={() => createTopic(lessonId)}/>
             </li>
