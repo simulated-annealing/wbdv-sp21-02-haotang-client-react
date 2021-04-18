@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const MultipleChoiceQuestion = ({q}) => {
+const MultipleChoiceQuestion = ({q, questions, setQuestions}) => {
 
     const [truth, setTruth] = useState(0)
     const [grade, setGrade] = useState(false)
@@ -31,6 +31,8 @@ const MultipleChoiceQuestion = ({q}) => {
             alert("You haven't select an answer!")
             return
         }
+        q.answer = q.choices[truth-1]
+        setQuestions(questions.map(ques => ques._id === q._id? q: ques))
         setItemsState(itemsState.map((_, idx) => {
             if (q.correct === q.choices[idx]) return "list-group-item list-group-item-success Cursor-Pointer" 
             if (truth === idx+1) return "list-group-item list-group-item-danger Cursor-Pointer" 

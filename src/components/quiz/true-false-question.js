@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const TrueFalseQuestion = ({q}) => {
+const TrueFalseQuestion = ({q, questions, setQuestions}) => {
 
     const choices = ["true", "false"]
     const [truth, setTruth] = useState(0)
@@ -32,6 +32,9 @@ const TrueFalseQuestion = ({q}) => {
             alert("You haven't select an answer!")
             return
         }
+
+        q.answer = choices[truth-1]
+        setQuestions(questions.map(ques => ques._id === q._id? q: ques))
         setItemsState(itemsState.map((_, idx) => {
             if (q.correct === choices[idx]) return "list-group-item list-group-item-success Cursor-Pointer" 
             if (truth === idx+1) return "list-group-item list-group-item-danger Cursor-Pointer" 
